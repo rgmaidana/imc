@@ -232,6 +232,7 @@
         Examples: "label1=12;label2=3" or "label1=12" or "label1=test_2".
       </description>
     </unit>
+    <unit abbrev="W" name="Watts"/>
   </units>
 
   <enumerations>
@@ -4551,6 +4552,24 @@
       </description>
     </field>
   </message>
+
+  <message id="364" name="Obstacle State" abbrev="ObstacleState">
+    <description>
+      Obstacle state.
+    </description>
+    <field name="MMSI" abbrev="mmsi" type="uint32_t"/>
+    <field name="Longitude" abbrev="lon" type="fp64_t"/>
+    <field name="Latitude" abbrev="lat" type="fp64_t"/>
+    <field name="Offset north" abbrev="x" type="fp32_t"/>
+    <field name="Offset east" abbrev="y" type="fp32_t"/>
+    <field name="Rotation Z" abbrev="psi" type="fp32_t"/>
+    <field name="Ground velocity north" abbrev="u" type="fp32_t"/>
+    <field name="Ground velocity east" abbrev="v" type="fp32_t"/>
+    <field name="Size A length" abbrev="a" type="fp32_t"/>
+    <field name="Size B length" abbrev="b" type="fp32_t"/>
+    <field name="Size C width" abbrev="c" type="fp32_t"/>
+    <field name="Size D width" abbrev="d" type="fp32_t"/>
+  </message>  
 
   <!-- Guidance -->
   <message id="400" name="Desired Heading" abbrev="DesiredHeading"  source="vehicle">
@@ -9529,6 +9548,20 @@
     <field name="Additional Data" abbrev="arg" type="message"/>
   </message>
 
+  <message id="607" name="AIS static info" abbrev="AisStaticInfo" source="vehicle">
+    <description>
+      AIS Static Info.
+    </description>
+    <field name="Identification" abbrev="id" type="plaintext"/>
+    <field name="Call sign" abbrev="callsign" type="plaintext"/>
+    <field name="Ship name" abbrev="name" type="plaintext"/>
+    <field name="Type and cargo" abbrev="type_and_cargo" type="uint8_t"/>
+    <field name="Size A length" abbrev="a" type="fp32_t"/>
+    <field name="Size B length" abbrev="b" type="fp32_t"/>
+    <field name="Size C width" abbrev="c" type="fp32_t"/>
+    <field name="Size D width" abbrev="d" type="fp32_t"/>
+  </message>
+
   <!-- Autonomy -->
   <message id="650" name="Vehicle Links" abbrev="VehicleLinks" source="vehicle">
     <description>
@@ -10767,5 +10800,79 @@
       </description>
     </field>
    </message>
-  
+
+   <message id="910" name="Power" abbrev="Power" source="vehicle">
+    <description>
+      Total produced panels power.
+    </description>
+    <field name="Value for produced power" abbrev="value" type="fp64_t" unit="W">
+      <description>
+        Value for produced power
+      </description>
+    </field>
+   </message>
+
+   <message id="911" name="Estimated Frequency" abbrev="EstimatedFreq" source="vehicle">
+    <description>
+      Estimated wave frequency.
+    </description>
+    <field name="Value for estimated wave frequency" abbrev="value" type="fp64_t" unit="Hz">
+      <description>
+        Value for estimated wave frequency
+      </description>
+    </field>
+   </message>
+
+   <message id="912" name="Power Settings" abbrev="PowerSettings" source="vehicle">
+    <description>
+      AutoNaut Power Settings.
+    </description>
+    <field name="Level 2" abbrev="l2" type="int8_t">
+      <description>
+        Level 2 setting
+      </description>
+    </field>
+    <field name="Level 3" abbrev="l3" type="int8_t">
+      <description>
+        Level 3 setting
+      </description>
+    </field>
+    <field name="Iridium" abbrev="iridium" type="int8_t">
+      <description>
+        Iridium setting
+      </description>
+    </field>
+    <field name="Modem" abbrev="modem" type="int8_t">
+      <description>
+        Modem setting
+      </description>
+    </field>
+    <field name="Pumps" abbrev="pumps" type="int8_t">
+      <description>
+        Pumps setting
+      </description>
+    </field>
+    <field name="VHF" abbrev="vhf" type="int8_t">
+      <description>
+        VHF setting
+      </description>
+    </field>
+   </message>
+
+   <message id="913" name="Compass Heading" abbrev="CompassHeading" source="vehicle">
+    <description>
+      Compass Heading.
+    </description>
+    <field name="Time" abbrev="time" type="fp64_t" unit="s">
+      <description>
+        Device time.
+      </description>
+    </field>
+    <field name="Angle" abbrev="ang" type="fp64_t" unit="rad">
+      <description>
+        Device angle.
+      </description>
+    </field>
+   </message>
+
 </messages>
